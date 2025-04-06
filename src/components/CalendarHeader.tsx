@@ -17,7 +17,7 @@ interface CalendarHeaderProps {
   onNextMonth: () => void;
   onAddEvent: () => void;
   isConnected: boolean;
-  setIsConnected: (connected: boolean) => void;
+  setIsConnected: (token: string) => void;
 }
 
 export default function CalendarHeader({
@@ -33,7 +33,7 @@ export default function CalendarHeader({
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => {
       console.log("Google login success:", codeResponse);
-      setIsConnected(true);
+      setIsConnected(codeResponse.access_token);
       toast({
         title: "Success",
         description: "Connected to Google Calendar",

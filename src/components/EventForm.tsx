@@ -45,6 +45,7 @@ export type CalendarEvent = {
   endTime: string;
   progress: number;
   completed: boolean;
+  googleEventId?: string; // Added to track Google Calendar event IDs
 };
 
 export default function EventForm({ isOpen, onClose, onEventAdd, selectedDate }: EventFormProps) {

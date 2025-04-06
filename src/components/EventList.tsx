@@ -79,9 +79,16 @@ export default function EventList({
                     {event.startTime} - {event.endTime}
                   </div>
                 </div>
-                <Badge variant={event.completed ? "default" : "outline"} className="ml-2">
-                  {event.completed ? "Completed" : "In Progress"}
-                </Badge>
+                <div className="flex items-center gap-2">
+                  {event.googleEventId && (
+                    <Badge variant="secondary" className="ml-2">
+                      Google
+                    </Badge>
+                  )}
+                  <Badge variant={event.completed ? "default" : "outline"}>
+                    {event.completed ? "Completed" : "In Progress"}
+                  </Badge>
+                </div>
               </div>
               
               {event.description && (
